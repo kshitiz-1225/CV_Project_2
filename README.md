@@ -9,25 +9,23 @@ We implemented the following few shot models:
 - [Prototypical Networks](https://arxiv.org/abs/1703.05175)
 - [Siamese Networks](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf)
 - [Matching Networks](https://arxiv.org/abs/1606.04080)
+- [Relation Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Sung_Learning_to_Compare_CVPR_2018_paper.pdf)
 - [Model Agnostic Meta Learning ( MAML )](https://arxiv.org/abs/1703.03400)
 
 ### Data
 
-We have implemented our models on 2 datasets, Omniglot and Mini-ImageNet
+We have implemented our models on the following dataset Omniglot, Mini-ImageNet and CIFAR-FS
 
 **Omniglot** dataset. Download from [Link](https://github.com/brendenlake/omniglot/tree/master/python) place the extracted files into `DATA_PATH/Omniglot_Raw` and run`scripts/preprocessing_omniglot.py`
 
 **Mini-ImageNet** dataset. Download files from [Link](https://drive.google.com/file/d/1-31FtYmm42a1MbU67weeP1Juh7SgGq7e/view?usp=sharing)
 place in `DATA_PATH/miniImageNet/images` and run`preprocessing_miniImageNet.py`
 
+**CIFAR-FS** dataset. Download files using `sh download_cifarfs.sh` [Link](https://www.dropbox.com/s/wuxb1wlahado3nq/cifar-fs-splits.zip?dl=0)
+
 ## Steps to run locally
 
 - Clone this repository and launch code:
-
-```
-git clone https://github.com/Garvit-32/One-Shot-Comparative-Analysis
-cd One-Shot-Comparative-Analysis
-```
 
 - Use pip to install other dependencies from `requirements.txt`
 
@@ -43,76 +41,25 @@ pip install -r requirements.txt
 
 - Download the dataset
 
-### Prototypical Network
+### Training 
 
 - Train Network
 
 ```
-python protonets.py --dataset omniglot/miniImageNet --n-train 1 --n-test 1 --k-train 5 --k-test 5
+python <python_file.py> --dataset <dataset/path> --n-train 1 --n-test 1 --k-train 5 --k-test 5
 ```
+
+### Testing
 
 - Test Network
 
 ```
-python test_proto.py --dataset omniglot/miniImageNet --n 1 --k 5 --path <path f the model file>
+python <python_file.py> --dataset <dataset/path> --n-train 1 --n-test 1 --k-train 5 --k-test 5
 ```
-
-### Matching Network
-
-- Train Network
-
+### Training/Testing
 ```
-python matching_networks.py --dataset omniglot/miniImageNet --n-train 1 --n-test 1 --k-train 5 --k-test 5
+python main.py <train_model/test_model>
 ```
-
-- Test Network
-
-```
-python test_matching.py --dataset omniglot/miniImageNet --n 1 --k 5 --q 1 --path <path f the model file>
-```
-
-### MAML
-
-- Train Network
-
-```
-python maml.py --dataset omniglot/miniImageNet --n 1 --k 5 --q 1
-```
-
-- Test Network
-
-```
-python test_maml.py --dataset omniglot/miniImageNet --n 1 --k 5 --q 1 --path <path f the model file>
-```
-
-### Siamese
-
-- Unzip Siamese.rar and go into directory and install the dependencies
-
-```
-cd Siamese
-pip install -r requirements.txt
-```
-
-- Download Dataset
-
-```
-python main.py download-data
-```
-
-- Train network
-
-```
-python main.py train_model
-```
-
-- Test network
-
-```
-python main.py test_model
-```
-
 ## Team
-
 - [Kshitiz ](https://github.com/kshitiz-1225)
-- [Harsh Agarwal](https://github.com/harsh-ux)
+- [Harsh Agarwal](https://github.com/harsh-ux
