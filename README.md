@@ -62,4 +62,4 @@ python main.py <train_model/test_model>
 ```
 ## Team
 - [Kshitiz ](https://github.com/kshitiz-1225)
-- [Harsh Agarwal](https://github.com/harsh-ux
+- [Harsh Agarwal](https://github.com/harsh-ux)
